@@ -2,6 +2,8 @@
 //########################### Controller Plugin 100: KNX-IP [DEVELOPMENT] #######################################
 //#######################################################################################################
 
+#ifdef PLUGIN_BUILD_DEV
+
 #define CPLUGIN_100
 #define CPLUGIN_ID_100         100
 #define CPLUGIN_NAME_100       "KNX-IP [DEVELOPMENT]"
@@ -9,6 +11,7 @@
 struct C100_ConfigStruct
 {
   boolean dummy;
+  byte area_
 };
 
 boolean CPlugin_100(byte function, struct EventStruct *event, String& string)
@@ -50,7 +53,6 @@ boolean CPlugin_100(byte function, struct EventStruct *event, String& string)
           case SENSOR_TYPE_SINGLE:                      // single value sensor, used for Dallas, BH1750, etc
           case SENSOR_TYPE_SWITCH:
           case SENSOR_TYPE_DIMMER:
-
             break;
           case SENSOR_TYPE_LONG:                      // single LONG value, stored in two floats (rfid tags)
 
@@ -72,3 +74,5 @@ boolean CPlugin_100(byte function, struct EventStruct *event, String& string)
   }
   return success;
 }
+
+#endif /* of PLUGIN_BUILD_DEV */
