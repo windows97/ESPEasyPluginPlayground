@@ -1,8 +1,9 @@
+#ifdef USES_C100
 //#######################################################################################################
 //########################### Controller Plugin 100: KNX-IP [DEVELOPMENT] #######################################
 //#######################################################################################################
 
-#ifdef PLUGIN_BUILD_DEV
+//#ifdef PLUGIN_BUILD_DEV
 
 #define CPLUGIN_100
 #define CPLUGIN_ID_100         100
@@ -23,10 +24,6 @@ boolean CPlugin_100(byte function, struct EventStruct *event, String& string)
     case CPLUGIN_PROTOCOL_ADD:
       {
         Protocol[++protocolCount].Number = CPLUGIN_ID_100;
-        Protocol[protocolCount].usesMQTT = false;
-        Protocol[protocolCount].usesAccount = false;
-        Protocol[protocolCount].usesPassword = false;
-        Protocol[protocolCount].defaultPort = 80;
         break;
       }
 
@@ -75,4 +72,6 @@ boolean CPlugin_100(byte function, struct EventStruct *event, String& string)
   return success;
 }
 
-#endif /* of PLUGIN_BUILD_DEV */
+//#endif /* of PLUGIN_BUILD_DEV */
+
+#endif /* of USES_C100 */
